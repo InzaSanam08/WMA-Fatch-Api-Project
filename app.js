@@ -1,56 +1,80 @@
-const products = [
-  { id: 1, name: "Front Table CSS", category: "Furniture", price: 150.5, stock: 544, sold: 256, img: "https://picsum.photos/200/150?1" },
-  { id: 2, name: "Apple Watch Series 10", category: "Electronic", price: 160.4, stock: 300, sold: 180, img: "https://picsum.photos/200/150?2" },
-  { id: 3, name: "Chester Chair", category: "Furniture", price: 120.3, stock: 200, sold: 150, img: "https://picsum.photos/200/150?3" },
-  { id: 4, name: "Air Wireless Headphone", category: "Electronic", price: 120.99, stock: 150, sold: 90, img: "https://picsum.photos/200/150?4" },
-  { id: 5, name: "Nike Downshifter 12", category: "Shoes", price: 150.5, stock: 500, sold: 300, img: "https://picsum.photos/200/150?5" }
-];
-const productContainer = document.querySelector("#product-list");
+let products = [];
+const productListContainer = document.querySelector('.container.py-4');
+const searchInput = document.querySelector('input[type="search"]');
+const searchBtn = document.querySelector('.btn.btn-dark');
+const navLinks = document.querySelectorAll('.nav-pills .nav-link');
 
+async function fetchProducts() {
+  
+  // const res = await fetch('https://dummyjson.com/products');
+  const res = await fetch('https://fakestoreapi.com/products');
+  products = await res.json();
+  renderProducts(products);
+}
+
+// Render product cards
 function renderProducts(list) {
-  productContainer.innerHTML = ""; // purane clear
-  list.forEach(p => {
-    const col = document.createElement("div");
-    col.className = "col";
-    col.innerHTML = `
-      <div class="card product-card h-100">
-        <img src="${p.img}" class="card-img-top" alt="${p.name}">
-        <div class="card-body">
-          <p class="product-title">${p.name}</p>
-          <p class="product-price">$${p.price}</p>
-          <div class="d-flex justify-content-between product-meta">
-            <span>Stock: ${p.stock}</span>
-            <span>Sold: ${p.sold}</span>
+  productListContainer.innerHTML = `
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4" id="product-list">
+      ${list.map(product => `
+        <div class="col">
+          <div class="card product-card h-100">
+            <img src="${product.image}" class="card-img-top" alt="${product.title}">
+            <div class="card-body">
+              <p class="product-title">${product.title}</p>
+              <p class="product-price">$${product.price}</p>
+              <div class="d-flex justify-content-between product-meta">
+                <span>Category: ${product.category}</span>
+                <span>Rating: ${product.rating?.rate || 'N/A'}</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>`;
-    productContainer.appendChild(col);
-  });
+      `).join('')}
+    </div>
+  `;
 }
-const searchInput = document.querySelector(".form-control");
 
-searchInput.addEventListener("input", e => {
-  const keyword = e.target.value.toLowerCase();
-  const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+// Search functionality
+searchBtn.addEventListener('click', () => {
+  const query = searchInput.value.toLowerCase();
+  const filtered = products.filter(product =>
+    product.title.toLowerCase().includes(query)
+  );
   renderProducts(filtered);
 });
-const tabs = document.querySelectorAll(".nav-pills .nav-link");
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", e => {
+// Category filter functionality
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
     e.preventDefault();
-
-    // active class update
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-
-    const category = tab.textContent.trim();
-
-    if (category === "All Products") {
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+    const category = link.textContent.trim();
+    if (category === 'All Products') {
       renderProducts(products);
+    } else if (category === 'Most Purchased') {
+      // Sort by rating count (simulate "most purchased")
+      const sorted = [...products].sort((a, b) => (b.rating?.count || 0) - (a.rating?.count || 0));
+      renderProducts(sorted.slice(0, 8));
     } else {
-      const filtered = products.filter(p => p.category === category);
+      // Map nav text to API category
+      const categoryMap = {
+        'Electronic': 'electronics',
+        'Clothes': 'men\'s clothing',
+        'Shoes': 'men\'s clothing',
+        'Furniture': 'jewelery',
+        'Sports': 'men\'s clothing',
+        'Grocery': 'women\'s clothing'
+      };
+      const apiCategory = categoryMap[category] || category.toLowerCase();
+      const filtered = products.filter(product =>
+        product.category.toLowerCase().includes(apiCategory)
+      );
       renderProducts(filtered);
     }
   });
 });
+
+// Initial fetch
+fetchProducts();
