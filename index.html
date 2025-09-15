@@ -1,295 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <!-- Font CDN -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <!-- Css File Link -->
 <link rel="stylesheet" href="style.css">
 <!-- BootStrap Link  -->
- <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
 <body>
-<!-- Nav Bar -->
-<!-- <div class="container-fluid bg-body-tertiary"> -->
-    <nav class="navbar navbar-expand-lg bg-white m-3 p-3 rounded-5">
-  <div class="container-fluid text-white">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-      <div class="navbar-nav" id="links">
-        <a class="nav-link active" aria-current="page" href="#">
-          <img src="assets/dashboardIcon.png" alt="">
-          Dashboard</a>
-        <a class="nav-link" href="#">
-          <i class="fa-solid fa-cube"></i>
-          Products</a>
-        <a class="nav-link" href="#"><i class="fa-solid fa-credit-card"></i>Purchases</a>
-        <a class="nav-link" href="#">Customers</a>
-        <a class="nav-link" href="#">Analytics</a>
-        <a class="nav-link" href="#">Settings</a>
+  <!-- Nav Bar -->
+
+  <nav class="navbar navbar-expand-lg bg-white m-3 p-3 rounded-5">
+    <div class="container-fluid text-white">
+      <a class="navbar-brand" href="#">QuickFind</a>
+
+      <div class="d-flex align-items-center gap-2" role="search">
+        <!-- Search box -->
+        <div class="input-group rounded-pill bg-light px-3">
+          <span class="input-group-text bg-transparent border-0">
+            <i class="fa fa-search text-muted"></i>
+          </span>
+          <input class="form-control border-0 bg-transparent" type="search" placeholder="Search product..."
+            aria-label="Search">
+        </div>
+
+        <!-- Add Product button -->
+        <button class="btn btn-dark rounded-pill px-4" type="button">
+          +Search
+        </button>
       </div>
     </div>
-    <form class="d-flex align-items-center gap-2" role="search">
-  <!-- Search box -->
-  <div class="input-group rounded-pill bg-light px-3">
-    <span class="input-group-text bg-transparent border-0">
-      <i class="fa fa-search text-muted"></i>
-    </span>
-    <input 
-      class="form-control border-0 bg-transparent" 
-      type="search" 
-      placeholder="Search product..." 
-      aria-label="Search"
-    />
-  </div>
-
-  <!-- Add Product button -->
-  <button class="btn btn-dark rounded-pill px-4" type="button">
-    +Search
-  </button>
-</form>
-
-     <!-- <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form> -->
-  </div>
-</nav>
- <!-- </div> -->
+  </nav>
+  <!-- </div> -->
   <div id="section-1" class="container-fluid navbar-expand-lg m-3 bg-white rounded-5">
     <h3 class="mb-4 m-5 p-3">Products</h3>
 
-     <ul class="nav nav-pills justify-content-center gap-5 m-4 mb-5 gap-2">
-    <li class="nav-item">
-      <a class="nav-link active rounded-pill px-3" href="#">All Products</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Most Purchased</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Furniture</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Shoes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Clothes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Electronic</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Sports</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link rounded-pill px-3" href="#">Grocery</a>
-    </li>
-  </ul>
-  <div class="container py-4">
-    
-     <!-- links -->
- 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 "  id="product-list">
-      <!-- Card 1 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?1" class="card-img-top" alt="Front Table">
-          <div class="card-body">
-            <p class="product-title">Front Table CSS</p>
-            <p class="product-price">$150.50</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <ul class="nav nav-pills justify-content-center gap-5 m-4 mb-5 gap-2">
+      <li class="nav-item">
+        <a class="nav-link active rounded-pill px-3" href="#">All Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link rounded-pill px-3" href="#">Most Purchased</a>
+      </li>
 
-      <!-- Card 2 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?2" class="card-img-top" alt="Apple Watch">
-          <div class="card-body">
-            <p class="product-title">Apple Watch Series 10</p>
-            <p class="product-price">$160.40</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?3" class="card-img-top" alt="Chair">
-          <div class="card-body">
-            <p class="product-title">Chester Chair</p>
-            <p class="product-price">$120.30</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?4" class="card-img-top" alt="Headphones">
-          <div class="card-body">
-            <p class="product-title">Air Wireless Headphone</p>
-            <p class="product-price">$120.99</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?5" class="card-img-top" alt="Shoes">
-          <div class="card-body">
-            <p class="product-title">Nike Downshifter 12</p>
-            <p class="product-price">$150.50</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-      <!-- links -->
-
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mt-5">
-    
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?1" class="card-img-top" alt="Front Table">
-          <div class="card-body">
-            <p class="product-title">Front Table CSS</p>
-            <p class="product-price">$150.50</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-     
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?2" class="card-img-top" alt="Apple Watch">
-          <div class="card-body">
-            <p class="product-title">Apple Watch Series 10</p>
-            <p class="product-price">$160.40</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?3" class="card-img-top" alt="Chair">
-          <div class="card-body">
-            <p class="product-title">Chester Chair</p>
-            <p class="product-price">$120.30</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?4" class="card-img-top" alt="Headphones">
-          <div class="card-body">
-            <p class="product-title">Air Wireless Headphone</p>
-            <p class="product-price">$120.99</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col">
-        <div class="card product-card h-100">
-          <img src="https://picsum.photos/200/150?5" class="card-img-top" alt="Shoes">
-          <div class="card-body">
-            <p class="product-title">Nike Downshifter 12</p>
-            <p class="product-price">$150.50</p>
-            <div class="d-flex justify-content-between product-meta">
-              <span>Stock: 544</span>
-              <span>Sold: 256</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <li class="nav-item">
+        <a class="nav-link rounded-pill px-3" href="#">Clothes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link rounded-pill px-3" href="#">Electronic</a>
+      </li>
+    </ul>
+    <div class="container py-4">
     </div>
   </div>
-  </div>
-
- <!-- <div class="container-fluid m-3 rounded-5" id="section-1">
-  <div class="card" style="width: 18rem;">
-  <img src="assets/dashboardIcon.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-  </div>
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-  </div>
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-  </div>
-</div>
- </div> -->
 </body>
 <!-- JavaScript File Link -->
- <!-- <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"> -->
-<!-- <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="app.js"></script>
+
 </html>
